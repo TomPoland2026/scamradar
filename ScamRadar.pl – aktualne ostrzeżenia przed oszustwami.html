@@ -1,0 +1,302 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScamRadar.pl – aktualne ostrzeżenia przed oszustwami</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#fbfaf6;--ink:#161616;--soft:#55524c;--rule:#d9d5cc;--red:#b3261e;--tint:#f2efe7}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  .serif{font-family:"Source Serif 4",Georgia,serif}
+
+  .topbar{border-bottom:1px solid var(--rule);font-size:13px;color:var(--soft)}
+  .topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:9px;padding-bottom:9px}
+  .live{color:var(--red);font-weight:600}
+  .live::before{content:"";display:inline-block;width:7px;height:7px;background:var(--red);border-radius:50%;margin-right:7px;vertical-align:1px}
+
+  .masthead{text-align:center;padding:34px 0 22px;border-bottom:3px double var(--ink)}
+  .logo{font-family:"Source Serif 4",Georgia,serif;font-weight:900;font-size:clamp(42px,9vw,78px);letter-spacing:-.025em;line-height:1;margin:0}
+  .logo span{color:var(--red)}
+  .tagline{margin:10px 0 0;font-size:15px;color:var(--soft);letter-spacing:.02em}
+
+  nav{border-bottom:1px solid var(--rule);position:sticky;top:0;background:var(--paper);z-index:5}
+  nav .wrap{display:flex;justify-content:center;gap:4px 22px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+  nav a{text-decoration:none;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+  nav a:hover{color:var(--red)}
+
+  .kicker{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin:0 0 6px}
+  h2{font-family:"Source Serif 4",Georgia,serif;font-size:32px;line-height:1.15;margin:0 0 18px;font-weight:700}
+  section{padding:42px 0 10px}
+  section+section{border-top:1px solid var(--rule);margin-top:30px}
+
+  /* aktualności */
+  .lead-story{display:grid;grid-template-columns:1.4fr 1fr;gap:34px;padding-bottom:26px;border-bottom:1px solid var(--rule)}
+  .lead-story h3{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.12;margin:6px 0 12px;font-weight:700}
+  .lead-story p:not(.kicker){font-size:18px;color:var(--soft);margin:0 0 12px}
+  .side h4{font-family:"Source Serif 4",Georgia,serif;font-size:19px;line-height:1.25;margin:4px 0 6px}
+  .side article{padding:0 0 16px;margin-bottom:16px;border-bottom:1px solid var(--rule)}
+  .side article:last-child{border:0;margin:0}
+  .meta{font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em}
+  .meta b{color:var(--red);font-weight:600}
+  .src{font-size:13px;color:var(--soft)}
+  .src a{color:var(--ink);text-decoration-color:var(--red);text-underline-offset:3px}
+  .fresh{background:var(--red);color:#fff;font-size:11px;font-weight:600;padding:1px 6px;margin-left:6px;letter-spacing:.05em}
+
+  .tabs{display:flex;gap:0;flex-wrap:wrap;margin:26px 0 8px;border-bottom:1px solid var(--ink)}
+  .tabs button{font:600 13px "IBM Plex Sans",sans-serif;background:none;border:0;padding:8px 14px;cursor:pointer;color:var(--soft);border-bottom:3px solid transparent;margin-bottom:-1px}
+  .tabs button.on{color:var(--ink);border-bottom-color:var(--red)}
+  .archive article{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--rule)}
+  .archive time{font-size:13px;color:var(--soft);padding-top:3px}
+  .archive h4{font-family:"Source Serif 4",Georgia,serif;font-size:20px;line-height:1.25;margin:0 0 4px}
+  .archive p{margin:0 0 6px;color:var(--soft)}
+
+  /* schematy */
+  .schemes{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+  .schemes > div{display:grid;grid-template-columns:44px 1fr;padding:16px 0;border-top:1px solid var(--rule)}
+  .schemes .n{font-family:"Source Serif 4",Georgia,serif;font-weight:900;font-size:24px;color:var(--red);line-height:1.1}
+  .schemes h3{font-family:"Source Serif 4",Georgia,serif;font-size:20px;margin:0 0 4px}
+  .schemes p{margin:0;color:var(--soft);font-size:15px}
+
+  /* flagi */
+  .flags{columns:2;column-gap:40px;padding:0;margin:0;list-style:none}
+  .flags li{break-inside:avoid;padding:10px 0 10px 28px;position:relative;border-bottom:1px dotted var(--rule)}
+  .flags li::before{content:"";position:absolute;left:4px;top:18px;width:11px;height:11px;border:2px solid var(--red);transform:rotate(45deg)}
+
+  /* test */
+  .quiz{background:var(--tint);padding:28px;border-left:4px solid var(--ink)}
+  .quiz .msg{font-family:"Source Serif 4",Georgia,serif;font-size:21px;line-height:1.4;font-style:italic;margin:8px 0 18px}
+  .quiz button{font:600 14px "IBM Plex Sans",sans-serif;padding:10px 18px;border:1px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;margin:0 8px 8px 0}
+  .quiz button:disabled{opacity:.45;cursor:default}
+  .quiz button:not(:disabled):hover{background:var(--ink);color:var(--paper)}
+  .res{margin-top:10px}
+
+  /* pomoc */
+  .steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .steps li{counter-increment:s;border-top:3px solid var(--ink);padding-top:12px;font-size:15px;color:var(--soft)}
+  .steps li::before{content:"Krok " counter(s);display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--red);margin-bottom:4px}
+  .steps strong{color:var(--ink);display:block;font-family:"Source Serif 4",Georgia,serif;font-size:18px;margin-bottom:2px}
+
+  /* zgłoś */
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  td{padding:13px 10px 13px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+  td:first-child{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:20px;white-space:nowrap;width:1%;padding-right:26px}
+  td a{text-decoration-color:var(--red);text-underline-offset:3px}
+
+  footer{margin-top:50px;border-top:3px double var(--ink);padding:22px 0 50px;font-size:13px;color:var(--soft)}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+  @media (max-width:760px){
+    .lead-story,.schemes,.steps{grid-template-columns:1fr}
+    .flags{columns:1}
+    .archive article{grid-template-columns:1fr;gap:2px}
+    .wrap{padding:0 16px}
+    .topbar .wrap{flex-direction:column;gap:2px;font-size:12px}
+    #today{display:none}
+    .masthead{padding:24px 0 16px}
+    nav .wrap{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;gap:18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    nav .wrap::-webkit-scrollbar{display:none}
+    nav a{flex:0 0 auto}
+    .tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+    .tabs::-webkit-scrollbar{display:none}
+    .tabs button{flex:0 0 auto}
+    h2{font-size:26px}
+    section{padding:32px 0 6px}
+    .lead-story{gap:22px}
+    .schemes > div{grid-template-columns:36px 1fr}
+    table,tbody,tr,td{display:block;width:100%}
+    tr{padding:12px 0;border-bottom:1px solid var(--rule)}
+    td{border:0;padding:0}
+    td:first-child{width:auto;padding:0 0 2px;font-size:19px}
+    .quiz{padding:20px}
+    .quiz .msg{font-size:18px}
+    .quiz button{width:100%;margin:0 0 8px}
+    footer .wrap{flex-direction:column;gap:8px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span id="today"></span>
+  <span><span class="live">Na bieżąco</span> · aktualizacja dwa razy dziennie · ostatnia: <b id="updated"></b></span>
+</div></div>
+
+<header class="masthead"><div class="wrap">
+  <p class="logo">ScamRadar<span>.pl</span></p>
+  <p class="tagline">Ostrzeżenia przed oszustwami w Polsce, zebrane w jednym miejscu</p>
+</div></header>
+
+<nav><div class="wrap">
+  <a href="#aktualne">Aktualne</a><a href="#schematy">Schematy</a><a href="#flagi">Sygnały</a>
+  <a href="#test">Test</a><a href="#pomoc">Pomoc</a><a href="#zglos">Zgłoś</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="aktualne" style="border:0;margin:0">
+  <div class="lead-story" id="lead"></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="archive" id="archive"></div>
+</section>
+
+<section id="schematy">
+  <p class="kicker">Poradnik</p>
+  <h2>Osiem sposobów, na które najczęściej tracimy pieniądze</h2>
+  <div class="schemes">
+    <div><span class="n">01</span><div><h3>Fałszywe inwestycje</h3><p>Reklama z „wywiadem” znanej osoby, potem telefon od „opiekuna konta”. Na początku drobna wpłata, później prośby o kolejne i o instalację aplikacji.</p></div></div>
+    <div><span class="n">02</span><div><h3>Telefon „z banku” lub „z policji”</h3><p>Ktoś twierdzi, że twoje pieniądze są zagrożone, i każe przelać je na „bezpieczne konto”. Bywa, że rozmowa odbywa się na wideo, z mundurem w tle.</p></div></div>
+    <div><span class="n">03</span><div><h3>Dopłata do przesyłki</h3><p>SMS o niedopłacie albo złym adresie. Link prowadzi do strony, która tylko udaje bramkę płatniczą.</p></div></div>
+    <div><span class="n">04</span><div><h3>Sklepy-widma</h3><p>Kopie znanych marek z rabatami po 70–80%. Najwięcej ich przed Black Friday i świętami.</p></div></div>
+    <div><span class="n">05</span><div><h3>„Urząd” w SMS-ie</h3><p>Zwrot podatku, świadczenie w mObywatelu, mandat do zapłaty. Każda wersja kończy się na fałszywej stronie logowania.</p></div></div>
+    <div><span class="n">06</span><div><h3>Prośba o BLIK od znajomego</h3><p>Przejęte konto na Messengerze albo „nowy numer” dziecka. Coraz częściej z głosem podrobionym przez AI.</p></div></div>
+    <div><span class="n">07</span><div><h3>„Odzyskamy twoje pieniądze”</h3><p>Fałszywi prawnicy i rzekomy „dział KNF” wracają do osób już oszukanych i biorą opłatę za zwrot, który nigdy nie nastąpi.</p></div></div>
+    <div><span class="n">08</span><div><h3>Miłość na odległość</h3><p>Kilka tygodni rozmów, a potem nagła prośba o pieniądze na leczenie, bilet albo wspólną inwestycję.</p></div></div>
+  </div>
+</section>
+
+<section id="flagi">
+  <p class="kicker">Zapamiętaj</p>
+  <h2>Kiedy się zatrzymać</h2>
+  <ul class="flags">
+    <li>Ktoś cię pogania: „tylko dziś”, „za godzinę konto zostanie zablokowane”.</li>
+    <li>Dostajesz link do logowania, płatności albo pobrania aplikacji.</li>
+    <li>Ktoś prosi o BLIK, PIN, hasło, kod z SMS-a albo dane karty.</li>
+    <li>Masz zainstalować program, zwłaszcza do zdalnej obsługi telefonu lub komputera.</li>
+    <li>Adres strony różni się jednym znakiem albo ma dziwną końcówkę (.top, .online).</li>
+    <li>Oferta jest za dobra: pewny zysk, telefon za 100 zł.</li>
+    <li>Słyszysz „nie mów nikomu”, „nie dzwoń do banku”.</li>
+    <li>Znana osoba „poleca” inwestycję w reklamie w mediach społecznościowych.</li>
+  </ul>
+</section>
+
+<section id="test">
+  <p class="kicker">Sprawdź się</p>
+  <h2>Czy rozpoznasz oszustwo?</h2>
+  <p style="margin:-8px 0 18px;color:var(--soft)">Przeczytaj wiadomość i zdecyduj, czy ktoś próbuje cię oszukać.</p>
+  <div class="quiz" id="quiz"></div>
+</section>
+
+<section id="pomoc">
+  <p class="kicker">Gdy stało się najgorsze</p>
+  <h2>Co zrobić, jeśli dałeś się oszukać</h2>
+  <ol class="steps">
+    <li><strong>Zadzwoń do banku</strong>Na numer z karty albo z oficjalnej strony. Poproś o blokadę karty i dostępu do konta.</li>
+    <li><strong>Zastrzeż kartę i PESEL</strong>Karty: +48 828 828 828. PESEL zastrzeżesz w aplikacji mObywatel.</li>
+    <li><strong>Zmień hasła</strong>Do banku, poczty i mediów społecznościowych. Włącz logowanie dwuetapowe.</li>
+    <li><strong>Usuń podejrzaną aplikację</strong>Jeśli coś zainstalowałeś na czyjąś prośbę, odinstaluj to i odłącz urządzenie od sieci.</li>
+    <li><strong>Zgłoś na policję</strong>Zabierz zrzuty ekranu, numery telefonów i potwierdzenia przelewów.</li>
+    <li><strong>Nie płać „odzyskiwaczom”</strong>Nikt uczciwy nie bierze opłaty z góry za zwrot skradzionych pieniędzy.</li>
+  </ol>
+</section>
+
+<section id="zglos">
+  <p class="kicker">Reaguj</p>
+  <h2>Gdzie zgłosić oszustwo</h2>
+  <table>
+    <tr><td>8080</td><td>Podejrzanego SMS-a przekaż bezpłatnie na ten numer. Trafi do CERT Polska.</td></tr>
+    <tr><td>CERT Polska</td><td>Fałszywe strony i maile: <a href="https://incydent.cert.pl">incydent.cert.pl</a> albo zakładka „Bezpiecznie” w mObywatelu.</td></tr>
+    <tr><td>CSIRT KNF</td><td>Oszustwa inwestycyjne i podróbki banków: <a href="https://cebrf.knf.gov.pl">cebrf.knf.gov.pl</a></td></tr>
+    <tr><td>112</td><td>Policja, gdy straciłeś pieniądze albo ktoś cię zastrasza.</td></tr>
+    <tr><td>Lista Ostrzeżeń</td><td>Sprawdź, czy strona nie jest już oznaczona jako niebezpieczna: <a href="https://cert.pl/lista-ostrzezen/">cert.pl/lista-ostrzezen</a></td></tr>
+  </table>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  <span><b class="serif" style="color:var(--ink);font-size:16px">ScamRadar.pl</b> · ostrzeżenia z publicznych komunikatów; źródło przy każdym wpisie</span>
+  <span>W razie wątpliwości dzwoń do instytucji na jej oficjalny numer.</span>
+</div></footer>
+
+<!-- DANE: nowe wpisy dodawaj na początku tablicy NEWS. -->
+<script>
+const UPDATED = "2026-11-16T07:54";
+const NEWS = [
+  {date:"2026-11-13", cat:"phishing", title:"Kraków ostrzega przed fałszywymi zbiórkami dla poszkodowanych z Rynku", text:"Urząd Miasta Krakowa informuje, że oszuści podszywają się pod miasto i zbierają pieniądze dla ofiar sobotniego ataku przez fałszywe strony i linki w mediach społecznościowych. Wpłacaj tylko na konta podane na oficjalnej stronie urzędu.", src:"abcZdrowie / UM Krakowa", url:"https://portal.abczdrowie.pl/oszusci-zeruja-na-tragedii-w-krakowie-miasto-wydalo-ostrzezenie/7350491669039136a"},
+  {date:"2026-11-09", cat:"phishing", title:"Nowa fala SMS-ów podszywających się pod InPost", text:"CERT Polska ostrzega przed wiadomościami o problemie z doręczeniem paczki lub niepełnym adresie. Link prowadzi do podróbki strony InPost, która wyłudza dane osobowe i dane karty.", src:"CyberDefence24 / CERT Polska", url:"https://cyberdefence24.pl/cyberbezpieczenstwo/oszusci-znowu-podszywaja-sie-pod-inpost-cert-polska-wydal-ostrzezenie"},
+  {date:"2026-11-14", cat:"telefon", title:"Oława: 138 tys. zł strat po telefonach „z banku” i „z policji”", text:"Policja z Oławy opisuje trzy listopadowe oszustwa, w których rozmówcy straszyli zagrożeniem oszczędności i nakłaniali do przelewu na „bezpieczne konto” albo przekazania gotówki. Prawdziwy bank ani policja nigdy o to nie proszą.", src:"Warszawa W Pigułce / KPP Oława", url:"https://warszawawpigulce.pl/ostrzezenie-dla-wszystkich-polakow-w-kilka-dni-stracili-ponad-138-tys-zl-oszusci-wykorzystuja-strach-przed-utrata-pieniedzy/"},
+  {date:"2026-11-13", cat:"phishing", title:"Autopay (dawniej Blue Media) potwierdza nieautoryzowany dostęp do danych płatności", text:"Operator płatności wykrył włamanie 11 listopada i zgłosił je m.in. do UODO i CSIRT KNF; skala wycieku nie jest jeszcze znana. Warto uważać na maile i SMS-y nawiązujące do płatności czy zwrotów.", src:"Warszawa W Pigułce", url:"https://warszawawpigulce.pl/pilne-ostrzezenie-atak-na-ogromny-system-platniczy-w-polsce-dane-milionow-polakow-zagrozone/"},
+  {date:"2026-11-12", cat:"phishing", title:"Fałszywe SMS-y o mandatach „od policji”", text:"CERT Polska i policja ostrzegają przed wiadomościami o rzekomym wykroczeniu drogowym z linkiem do strony udającej rządową płatność, która wyłudza dane karty i prawa jazdy. Policja nie wysyła SMS-ów z żądaniem zapłaty mandatu.", src:"Warszawa W Pigułce / CERT Polska", url:"https://warszawawpigulce.pl/policja-nie-wyslala-tego-mandatu-polacy-dostaja-sms-y-ktore-moga-kosztowac-ich-oszczednosci/"},
+  {date:"2026-11", cat:"zakupy", title:"Black Friday 2026: przybywa fałszywych sklepów i podróbek marek", text:"Przed wyprzedażami wyrastają kopie znanych sklepów. Sprawdzaj regulamin, dane firmy i adres strony; podejrzane wiadomości zgłaszaj do CERT Polska.", src:"money.pl", url:"https://www.money.pl/gospodarka/jak-bezpiecznie-kupowac-online-podczas-black-friday-7344252516411488a.html"},
+  {date:"2026-11-06", cat:"prawo", title:"Weszła w życie pierwsza polska ustawa wdrażająca DSA", text:"Nowe przepisy wskazują organy i procedury wobec platform internetowych; eksperci postulują obowiązkową weryfikację reklamodawców usług finansowych.", src:"PAP MediaRoom", url:"https://www.pap.pl/mediaroom/polska-wdraza-dsa-kancelaria-prawna-skarbiec-proponuje-platformy-sprawdzaly-i-zachowywaly"},
+  {date:"2026-10", cat:"inwestycje", title:"„Dział monitoringu KNF” obiecuje zwrot utraconych pieniędzy", text:"Oszuści podszywają się pod KNF, Interpol i KGP, celując w ofiary wcześniejszych oszustw. Mogą żądać instalacji oprogramowania do zdalnego pulpitu.", src:"android.com.pl", url:"https://android.com.pl/tech/1091349-knf-recovery-scam-zwrot-pieniedzy/"},
+  {date:"2026-10", cat:"zakupy", title:"Fałszywe sklepy ze zniczami przed Wszystkimi Świętymi", text:"CERT Polska ostrzega przed sklepami z bardzo niskimi cenami zniczy i dekoracji, które wyłudzają pieniądze, dane kart i loginy do banku.", src:"Benchmark / CERT Polska", url:"https://www.benchmark.pl/falszywe-sklepy-przed-wszystkimi-swietymi-cert-polska-ostrzega-7344199428094048a"},
+  {date:"2026-09", cat:"inwestycje", title:"NASK: 16 tys. reklam AI z wizerunkami ponad 450 osób", text:"W ciągu 5 tygodni monitoringu wykryto tysiące deepfake'ów promujących fałszywe platformy inwestycyjne.", src:"PAP MediaRoom / NASK", url:"https://www.pap.pl/mediaroom/polska-wdraza-dsa-kancelaria-prawna-skarbiec-proponuje-platformy-sprawdzaly-i-zachowywaly"},
+  {date:"2026-08-19", cat:"inwestycje", title:"CSIRT KNF: 17 617 groźnych domen w jeden miesiąc", text:"Tylko w lipcu zgłoszono tysiące stron i 1699 fałszywych reklam inwestycyjnych, głównie w mediach społecznościowych.", src:"money.pl", url:"https://direct.money.pl/artykuly/porady/csirt-knf-zglosil-17-617-groznych-domen-falszywe-inwestycje-moga-kosztowac-oszczednosci"},
+  {date:"2026-07-28", cat:"telefon", title:"Wideorozmowy z „policjantem w mundurze”", text:"Oszuści coraz częściej używają wideo, by uwiarygodnić się jako policja lub bank, i przełączają ofiarę do kolejnych „pracowników”.", src:"money.pl", url:"https://direct.money.pl/artykuly/porady/pokazuja-mundur-i-kaza-ratowac-konto-policja-ostrzega-przed-nowym-oszustwem"},
+  {date:"2026-07-16", cat:"phishing", title:"Rekord: 330 tys. fałszywych domen w pół roku", text:"CERT Orange Polska zablokował o 30% więcej stron niż rok wcześniej; ponad połowa prób wejścia dotyczyła fałszywych inwestycji.", src:"CERT Orange Polska", url:"https://biuroprasowe.orange.pl/wp-content/uploads/2026/07/CERT-Orange-Liczba-zablokowanych-falszywych-domen-wciaz-rosnie.pdf"},
+  {date:"2026-04-20", cat:"phishing", title:"Zmiana Santandera na Erste wykorzystana do phishingu", text:"Fałszywe reklamy obiecują „premię 1200 zł” za aktywację aplikacji. Loginy, numery kont i autoryzacja nie zmieniają się przy rebrandingu.", src:"money.pl", url:"https://direct.money.pl/artykuly/porady/oszusci-wykorzystuja-zmiane-santanderu-na-erste-kusza-klientow-1200-zl"},
+  {date:"2026-03-25", cat:"phishing", title:"Fałszywe powiadomienia „od KAS” z podróbką Profilu Zaufanego", text:"Pełnomocnik Rządu ds. Cyberbezpieczeństwa ostrzega przed wiadomościami o „nowej notyfikacji” z linkiem do fałszywego logowania.", src:"gov.pl", url:"https://www.gov.pl/web/cyfryzacja/komunikat-pelnomocnika-rzadu-do-spraw-cyberbezpieczenstwa---ostrzezenie-przed-oszustami-podszywajacymi-sia-pod-kas-i-mf"}
+];
+</script>
+
+<script>
+const CATS={phishing:"Phishing",inwestycje:"Inwestycje",zakupy:"Zakupy",telefon:"Telefon",prawo:"Prawo"};
+const toDate=d=>new Date(d.length===7?d+"-01T12:00":d.length===10?d+"T12:00":d);
+const fmtDay=d=>d.length===7?toDate(d).toLocaleDateString("pl-PL",{month:"long",year:"numeric"}):toDate(d).toLocaleDateString("pl-PL",{day:"numeric",month:"long",year:"numeric"});
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const upd=toDate(UPDATED);
+document.getElementById("updated").textContent = UPDATED.length>10
+  ? upd.toLocaleString("pl-PL",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"})
+  : fmtDay(UPDATED);
+document.getElementById("today").textContent=new Date().toLocaleDateString("pl-PL",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+
+const sorted=NEWS.slice().sort((a,b)=>b.date.localeCompare(a.date));
+const isFresh=n=>n.date.length===10&&(upd-toDate(n.date))/864e5<=3;
+const fresh=n=>isFresh(n)?'<span class="fresh">NOWE</span>':'';
+const meta=n=>`<div class="meta"><b>${esc(CATS[n.cat]||n.cat)}</b> · ${fmtDay(n.date)}${fresh(n)}</div>`;
+const src=n=>`<div class="src">Źródło: <a href="${esc(n.url)}">${esc(n.src)}</a></div>`;
+
+const [first,...rest]=sorted;
+document.getElementById("lead").innerHTML=`
+  <div><p class="kicker">Najnowsze ostrzeżenie</p>${meta(first)}<h3>${esc(first.title)}</h3><p>${esc(first.text)}</p>${src(first)}</div>
+  <div class="side">${rest.slice(0,3).map(n=>`<article>${meta(n)}<h4>${esc(n.title)}</h4>${src(n)}</article>`).join("")}</div>`;
+
+let active="all";
+function tabs(){
+  const t=document.getElementById("tabs");
+  t.innerHTML=[["all","Wszystkie"],...Object.entries(CATS)].map(([k,v])=>`<button data-k="${k}" class="${k===active?"on":""}">${v}</button>`).join("");
+  t.querySelectorAll("button").forEach(b=>b.onclick=()=>{active=b.dataset.k;tabs();archive();});
+}
+function archive(){
+  const list=sorted.filter(n=>active==="all"||n.cat===active);
+  document.getElementById("archive").innerHTML=list.map(n=>`<article><time>${fmtDay(n.date)}</time><div>
+    <div class="meta"><b>${esc(CATS[n.cat]||n.cat)}</b>${fresh(n)}</div><h4>${esc(n.title)}</h4><p>${esc(n.text)}</p>${src(n)}</div></article>`).join("")
+    ||'<p class="src" style="padding:16px 0">Brak wpisów w tej kategorii.</p>';
+}
+tabs();archive();
+
+const QUIZ=[
+  {ctx:"Dostajesz SMS-a:",msg:"„InPost: Twoja przesyłka czeka na dopłatę 1,99 zł. Zapłać tutaj: inpost-pl.top/pay”",scam:true,why:"InPost nie wysyła SMS-ów z linkami do dopłat. Adres z końcówką .top to typowy znak fałszywej strony."},
+  {ctx:"Dzwoni telefon. Mężczyzna mówi:",msg:"„Dzień dobry, dzwonię z działu bezpieczeństwa banku. Ktoś próbuje wypłacić pieniądze z pana konta. Proszę je szybko przelać na konto zabezpieczające.”",scam:true,why:"Bank nigdy nie prosi o przelanie pieniędzy na inne konto. Rozłącz się i sam zadzwoń na numer z odwrotu karty płatniczej."},
+  {ctx:"Wiadomość na WhatsAppie z nieznanego numeru:",msg:"„Cześć mamo, zepsuł mi się telefon, piszę z nowego numeru. Możesz mi szybko wysłać kod BLIK na 500 zł? Oddam wieczorem.”",scam:true,why:"To metoda „na dziecko”, odmiana „na wnuczka”. Zanim cokolwiek wyślesz, zadzwoń na stary numer albo zapytaj o coś, co wie tylko ta osoba."},
+  {ctx:"Na Facebooku widzisz reklamę z logo mObywatela:",msg:"„Sprawdź, czy należy Ci się nowe świadczenie 740 zł. Wpisz dane i odbierz pieniądze jeszcze dziś!”",scam:true,why:"Państwo nie przyznaje świadczeń przez reklamy w mediach społecznościowych. Takie strony wyłudzają dane do logowania w banku."},
+  {ctx:"Logujesz się do banku na nowym laptopie. Po chwili w aplikacji banku na telefonie pojawia się komunikat:",msg:"„Potwierdź logowanie na nowym urządzeniu.”",scam:false,why:"To zwykłe zabezpieczenie banku. Prośba pojawiła się w oficjalnej aplikacji i dotyczy logowania, które właśnie wykonujesz. Gdyby przyszła, kiedy się nie logujesz, odrzuć ją."}
+];
+let qi=0,score=0;
+function quiz(){
+  const q=QUIZ[qi],el=document.getElementById("quiz");
+  el.innerHTML=`<div class="meta">Pytanie ${qi+1} z ${QUIZ.length}</div><p style="margin:10px 0 0">${q.ctx}</p><div class="msg">${q.msg}</div>
+    <button id="y">To oszustwo</button><button id="n">To nie jest oszustwo</button><div class="res" id="res"></div>`;
+  const a=v=>{
+    const ok=v===q.scam; if(ok) score++;
+    document.getElementById("y").disabled=document.getElementById("n").disabled=true;
+    const last=qi===QUIZ.length-1;
+    const summary=last?`<p><strong>Twój wynik: ${score} z ${QUIZ.length}.</strong> ${score===QUIZ.length?"Świetnie, oszuści będą mieli z tobą trudno.":"Warto jeszcze raz przejrzeć sekcję „Kiedy się zatrzymać”."}</p>`:"";
+    document.getElementById("res").innerHTML=`<p><strong style="color:${ok?"#1f6b40":"var(--red)"}">${ok?"Zgadza się!":"Niestety nie."}</strong> ${q.why}</p>${summary}<button id="nx">${last?"Zacznij od nowa":"Następne pytanie"}</button>`;
+    document.getElementById("nx").onclick=()=>{if(last){qi=0;score=0}else qi++;quiz();};
+  };
+  document.getElementById("y").onclick=()=>a(true);document.getElementById("n").onclick=()=>a(false);
+}
+quiz();
+</script>
+</body>
+</html>
+
+</body></html>
