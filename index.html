@@ -212,7 +212,27 @@
 <footer><div class="wrap">
   <span><b class="serif" style="color:var(--ink);font-size:16px">ScamRadar.pl</b> · ostrzeżenia z publicznych komunikatów; źródło przy każdym wpisie</span>
   <span>W razie wątpliwości dzwoń do instytucji na jej oficjalny numer.</span>
+  <span id="visits" hidden>Odwiedziny: <b id="visits-n" style="color:var(--ink)"></b></span>
 </div></footer>
+
+<!-- LICZNIK ODWIEDZIN: liczba jest trzymana na serwerze counterapi.dev, więc nie znika po odświeżeniu ani zmianie urządzenia.
+     Jedno wejście = +1 na sesję przeglądarki (odświeżanie strony nie nabija licznika). -->
+<script>
+(function(){
+  var URL_BASE="https://api.counterapi.dev/v1/scamradar-pl/odwiedziny";
+  var counted=false;
+  try{counted=sessionStorage.getItem("sr_counted")==="1"}catch(e){}
+  fetch(counted?URL_BASE:URL_BASE+"/up")
+    .then(function(r){return r.ok?r.json():Promise.reject(r.status)})
+    .then(function(d){
+      if(typeof d.count!=="number")return;
+      try{sessionStorage.setItem("sr_counted","1")}catch(e){}
+      document.getElementById("visits-n").textContent=d.count.toLocaleString("pl-PL");
+      document.getElementById("visits").hidden=false;
+    })
+    .catch(function(){});
+})();
+</script>
 
 <!-- DANE: nowe wpisy dodawaj na początku tablicy NEWS. -->
 <script>
